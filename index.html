@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+  <head>
+    <title>Christmas Counter</title>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0" nonce="tYIuoiwE"></script>
+    <style>
+    body {
+      background-color: black;
+    }
+
+    h1 {
+      color: white;
+      text-align: center;
+      font-size: 72px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    p {
+      color: white;
+      text-align: center;
+      font-size: 24px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    textbox {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      overflow: hidden;
+    }
+    .fb-share-button {
+      position: absolute;
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+    </style>
+  </head>
+  <div class="fb-share-button" data-href="https://www.google.com/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.google.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+  <body>
+    <textbox>
+      <h1 id="counter">Error!</h1>
+      <p id="days">Please try again later</p>
+      <script>
+        const eve = "Eve ";
+        today=new Date();
+        var cmas=new Date(today.getFullYear(), 11, 25);
+        if (today.getMonth()==11 && today.getDate()>25)
+        {
+          cmas.setFullYear(cmas.getFullYear()+1);
+        }
+        var one_day=1000*60*60*24;
+        var daysAmount = Math.ceil((cmas.getTime()-today.getTime())/(one_day));
+        if(daysAmount > 56)
+        {
+          if(daysAmount > 131)
+          {
+            if(daysAmount > 225)
+            {
+              document.getElementById("counter").style.fontSize = "24px";
+            } else {
+              document.getElementById("counter").style.fontSize = "36px";
+            }
+          } else {
+            document.getElementById("counter").style.fontSize = "48px";
+          }
+        }
+        document.getElementById("counter").innerHTML = `It's Christmas ${eve.repeat(daysAmount)}`;
+        if(daysAmount == 0)
+        {
+          document.getElementById("days").innerHTML = `Merry Christmas!`;
+        } else {
+          document.getElementById("days").innerHTML = `Only ${daysAmount} days left!`;
+        }
+      </script>
+    </textbox>
+  </body>
+</html>
