@@ -65,9 +65,10 @@
           }
         }
         document.getElementById("counter").innerHTML = `It's Christmas ${eve.repeat(daysAmount)}`;
-        if(daysAmount == 0)
-        {
+        if(daysAmount == 0) {
           document.getElementById("days").innerHTML = `Merry Christmas!`;
+        } else if(daysAmount == 1) {
+          document.getElementById("days").innerHTML = `Only ${daysAmount} day left!`;
         } else {
           document.getElementById("days").innerHTML = `Only ${daysAmount} days left!`;
         }
