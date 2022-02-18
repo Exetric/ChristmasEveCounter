@@ -1,3 +1,2 @@
-# christmaseve
-it's just a site that tells you how far away christmas is. 
-Happy birthday jesus
+# OUTDATED
+This branch is outdated, visit [this branch](https://github.com/Exetric/ChristmasEveCounter/tree/master) for the updated website
